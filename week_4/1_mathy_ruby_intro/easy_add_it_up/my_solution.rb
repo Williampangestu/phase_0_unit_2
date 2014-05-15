@@ -8,8 +8,8 @@
 
 # 1. Pseudocode
 
-# What is the input?
-# What is the output? (i.e. What should the code return?)
+# What is the input? array of string or numbers 
+# What is the output? (i.e. What should the code return?) string of sentences
 # What are the steps needed to solve the problem?
 
 # create a method called total

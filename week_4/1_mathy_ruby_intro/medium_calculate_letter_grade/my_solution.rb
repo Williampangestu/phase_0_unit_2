@@ -8,8 +8,8 @@
 
 # 1. Pseudocode
 
-# What is the input?
-# What is the output? (i.e. What should the code return?)
+# What is the input? array of numbers
+# What is the output? (i.e. What should the code return?) string of letter A, B, C, D or F
 # What are the steps needed to solve the problem?
 
 # create a method called get_grade that takes an array as the parameter
@@ -59,7 +59,7 @@ end
 # 4. Reflection 
 
 # What parts of your strategy worked? What problems did you face?
-# My strategy of writing the pseudocode before the actual code worked. I had some problems refactoring my code.
+# My strategy of writing the pseudocode before the actual code worked. However, I had some problems refactoring my code.
 
 # What questions did you have while coding? What resources did you find to help you answer them?
 # What concepts are you having trouble with, or did you just figure something out? If so, what?
