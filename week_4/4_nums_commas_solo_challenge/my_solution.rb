@@ -61,29 +61,38 @@ end
 
 # 3. Refactored Solution
 def separate_comma (number)
-	string = number.to_s   
-	iterator = string.length / 3 
-	index = -4
+	string = number.to_s   			# convert integer to string 
 
-	if string.length < 4
+	# create an iterator value to use for the block later in the code. For example, since ruby always round numbers down by default,
+	# if the length of the number is 5, it will return 1 eventhough 5/3 = 1.67
+
+	iterator = string.length / 3 				
+
+	index = -4						# create an index variable that has a value of -4. It will be used for the insert method later
+
+	if string.length < 4			# if the number is less than 1000, just return the original string
 		return string
+
+	# if the number is not evenly divisible by 3 and bigger than 1000, create a variable i and set it equal to the iterator
 
 	elsif string.length % 3 != 0 && string.length > 3  
 	   i = iterator
+
+	# However, if the number can be evenly divided by 3 and bigger than 1000, the variable "i" would be equal to the value of 
+	# the iterator - 1. So 100 000 would have a value of 1 instead of 2 for "i"
 
 	else
 	   i = iterator - 1
 
     end
 
-    i.times do
-		string.insert(index,",")
-		index -= 4
-	end
+    i.times do 							 # "i" is used here to determine how many times it should insert a comma between the number.
+		string.insert(index,",")		 # insert a comma at the index -4 of the string. (-1 is the last element of the string) 
+		index -= 4						 # if the iterator ("i") is more than 1, its gonna loop and put another comma at the 4th element to the left of the last comma
+ 	end
     return string
 
 end
-
 
 # 4. Reflection 
 
