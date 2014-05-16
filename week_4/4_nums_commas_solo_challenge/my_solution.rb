@@ -68,7 +68,7 @@ def separate_comma (number)
 
 	iterator = string.length / 3 				
 
-	index = -4						# create an index variable that has a value of -4. It will be used for the insert method later
+	index = -4				# create an index variable that has a value of -4. It will be used for the insert method later
 
 	if string.length < 4			# if the number is less than 1000, just return the original string
 		return string
@@ -86,9 +86,9 @@ def separate_comma (number)
 
     end
 
-    i.times do 							 # "i" is used here to determine how many times it should insert a comma between the number.
+    i.times do 						# "i" is used here to determine how many times it should insert a comma between the number.
 		string.insert(index,",")		 # insert a comma at the index -4 of the string. (-1 is the last element of the string) 
-		index -= 4						 # if the iterator ("i") is more than 1, its gonna loop and put another comma at the 4th element to the left of the last comma
+		index -= 4				# if the iterator ("i") is more than 1, its gonna loop and put another comma at the 4th element to the left of the last comma
  	end
     return string
 
