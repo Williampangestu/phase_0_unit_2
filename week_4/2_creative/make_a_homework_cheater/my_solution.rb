@@ -19,23 +19,17 @@
 
 def history_essay(topic, title, name, date, thesis)
 	if topic == "person"
-		puts "#{title}. This essay is about a biography of #{name}. He/she was born on #{date}. #{thesis}."
+		print "#{title}. This essay is about a biography of #{name}. He/she was born on #{date}. #{thesis}."
 	elsif topic == "place"
-		puts "#{title}. This essay is about a history of #{name}. Independence day in #{name} is annually celebrated on #{date}. #{thesis}."
+		print "#{title}. This essay is about a history of #{name}. Independence day in #{name} is annually celebrated on #{date}. #{thesis}."
 	elsif topic == "invention"
-		puts "#{title}. This essay is about a history of #{name}. It was invented on #{date}. #{thesis}."
+		print "#{title}. This essay is about a history of #{name}. It was invented on #{date}. #{thesis}."
 	end
 end
 						
 
 # 4. Refactored Solution
-def history_essay(topic, title, name, date, thesis)
-	case topic
-	when "person" then print "#{title}. This essay is about a biography of #{name}. He/she was born on #{date}. #{thesis}."
-	when "place" then print "#{title}. This essay is about a history of #{name}. Independence day in #{name} is annually celebrated on #{date}. #{thesis}."
-    when "invention" then print "#{title}. This essay is about a history of #{name}. It was invented on #{date}. #{thesis}."
-	end
-end
+
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 sentence_1 = "Famous Person. This essay is about a biography of Kobe Bryant. He/she was born on August 23, 1978. His greatest scoring achievement is 81 points against Toronto Raptors."
