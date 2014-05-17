@@ -98,7 +98,7 @@ end
 
 # What questions did you have while coding? What resources did you find to help you answer them?
 # What concepts are you having trouble with, or did you just figure something out? If so, what?
-# While I was coding, I had a little bit trouble about the concept iteration using the .times method.
+# While I was coding, I had a little bit trouble about the concept of iteration using the .times method.
 # I used stackoverflow to help me understand it better.
 
 # Did you learn any new skills or tricks?
