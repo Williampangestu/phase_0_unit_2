@@ -50,32 +50,37 @@ def bakery_num(num_of_people, fav_food)   # creates a method that takes a number
 end # Closes the method.
  
 # Our Refactored Solution
-def bakery_num(people, food) 
-  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1}
-  food_qty = {"pie"=> 0, "cake" => 0, "cookie" => 0}
+def bakery_num(people, fav) 
+  menu = {"pie" => 8, "cake" => 6, "cookie" => 1}       # this hash states the number of people each food feeds
+  need = {"pie"=> 0, "cake" => 0, "cookie" => 0}        # this hash states the quantity of each food that need to be made
 
-  if my_list.include?(food)
-     food_qty = my_list[food]
-     
-     if people % food_qty == 0
-       num_of_food = people / food_qty
-       return "You need to make #{num_of_food} #{food}(s)." 
+  raise ArgumentError.new("You can't make that food") if menu.has_key?(fav) == false # this raises an argument error if fav food is not on the menu's hash key
+
+  if people % menu[fav] == 0                          # if the number of people is a multiple of fav food quantity
+     num_of_food = people / menu[fav]
+     return "You need to make #{num_of_food} #{fav}(s)." 
        
-     else
-       while people > 0
-        
-        my_list.each do |k,v|
-          food_qty[k] = people / v
-          people = people % v
-        end
+  else                                                # if the number of people is not evenly divisible by fav food quantity
+      if fav == "pie"                                 # if fav food is pie
+         need["pie"] = people / menu["pie"]           # the amount of pie that need to be made is equal to the number of people divided by the pie quantity
+         people = people % menu["pie"]                # the "new total" of the number of people is equal to the remainder of the "original" number of people divided by the pie quantity
+         need["cake"] = people / menu["cake"]         # use the "new total" of the number of people to calculate the amount of cake that need to be made
+         people = people % menu["cake"]               # calculate the remainder of people after it is divided by cake quantity, this will be used to  
+                                                      # determine the number of cookies that are need to be made
 
-        return "You need to make #{food_qty['pie']} pie(s), #{food_qty['cake']} cake(s), and #{food_qty['cookie']} cookie(s)."
+      elsif fav == "cake"                             # if the fav food is cake
+         need["cake"] = people / menu["cake"]         # instead of pie, we have to calculate the amount of cakes that are need to be made
+         people = people % menu["cake"]
+         need["pie"] = people / menu["pie"]
+         people = people % menu["pie"]
 
-       end
-     end
-          
-  else
-     raise ArgumentError.new("You can't make that food")
+      end
+
+        need["cookie"] = people                       # use the total remainder of people after it has been divided by pie and cake quantity
+                                                      # to determine the number of cookies that are need to be made
+
+        return "You need to make #{need["pie"]} pie(s), #{need["cake"]} cake(s), and #{need["cookie"]} cookie(s)."
+
   end
 
 end  
@@ -92,6 +97,6 @@ p bakery_num(130, "pie") == "You need to make 16 pie(s), 0 cake(s), and 2 cookie
 # p bakery_num(3, "apples") # this will raise an ArgumentError
 
 # You SHOULD change this driver code. Why? Because it doesn't make sense.
-p bakery_num(41, "cake") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s)." # WHAAAAAT? I thought I said I wanted cake!
+p bakery_num(41, "cake") == "You need to make 0 pie(s), 6 cake(s), and 5 cookie(s)." 
  
  
