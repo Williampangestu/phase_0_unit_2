@@ -59,3 +59,7 @@ p get_col(boggle_board,2) == ["a","d","l","k"]
 # parameters on my methods, the board array and the column/row number. 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
